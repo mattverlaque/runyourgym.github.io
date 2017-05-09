@@ -181,7 +181,7 @@ html.ios body {
 }
 .logo {
     height: 100px;
-    background-color: #fff!important;
+
     -webkit-transition-duration: 0.1s;
     transition-duration: 0.1s;
 }
