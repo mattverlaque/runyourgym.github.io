@@ -41,7 +41,7 @@ html.ios body {
 }
 .pusher {
     min-height: 100%;
-    height: 100%;
+    height: 100%!important;
     position: relative;
 }
 .fullheight {
@@ -213,7 +213,7 @@ html.ios body {
 }
 .mainWrap {
     background: #f1f4f5;
-    min-height: 100%;
+    height: 100%;
     position: relative;
 }
 .mainWrap .segment {
@@ -1048,4 +1048,13 @@ a.item.transition {
     .large.monitor.hidden {
         display: none !important;
     }
+}
+
+#contextWrap {
+  min-height: 100%!important;
+}
+
+.padded {
+  padding-left: 5px;
+  padding-right: 5px;
 }
