@@ -9,6 +9,7 @@
     <link href="plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <link href="plugins/pacejs/pace.css" rel="stylesheet" />
+    <link href="plugins/datedropper/datedropper.min.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -1234,7 +1235,6 @@
                             </div>
                         </div>
                   </div>
-
                 <!--Site Content-->
             </div>
         </div>
@@ -1256,12 +1256,21 @@
 
     <script>
     $('.add-contact-action').click( function() {
+      $('.datedrop').dateDropper();
       $('#add-contact-modal')
       .modal('show');
     });
     </script>
 
+    <script src="plugins/datedropper/datedropper.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.datedrop').dateDropper();
+        });
+    </script>
+
     <!--add contact-->
+
       <div class="ui modal" id="add-contact-modal">
         <h2 class="ui header">
 <i class="user icon"></i>
@@ -1373,6 +1382,25 @@ Add Contact
       <input type="text" name="shipping[first-name]" placeholder="First Name">
     </div>
   </div>
+  <h4 class="ui dividing header">Demographics</h4>
+    <div class="field">
+      <div class="two fields">
+        <div class="field">
+          <label>Gender</label>
+          <select class="ui dropdown">
+            <option value="" disabled selected>Select Gender</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Birthday</label>
+          <div class="ui input fluid">
+              <input type="text" class="datedrop" placeholder="Search..." data-large-mode="true"  data-large-default="true" data-modal="true" data-translate-mode="true">
+          </div>
+        </div>
+      </div>
+    </div>
           </div>
         </div>
         <div class="actions">
