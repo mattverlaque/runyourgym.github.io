@@ -1496,10 +1496,10 @@
                                             </div>
                                         </div>
                                       </div>
-                                      <div class="title" style="padding-top: 15px;">
+                                      <div class="active title" style="padding-top: 15px;">
                                           <i class="dropdown icon"></i> Today's Schedule (2)
                                       </div>
-                                      <div class="content">
+                                      <div class="active content">
                                         <div class="ui three column grid stackable">
                                             <div class="column">
                                                 <div class="ui fluid card">
@@ -2033,6 +2033,11 @@
         $('#send-sms-modal')
         .modal('show');
       });
+
+      $('.ui.accordion')
+        .accordion({
+          exclusive: false
+        });
 
     </script>
 </body>
