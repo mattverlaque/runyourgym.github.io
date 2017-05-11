@@ -2166,9 +2166,10 @@
         $('#select-a-date').show();
         $('#select-a-time').hide();
         $('#enter-info').hide();
-        $('#select-a-date-step').removeClass('completed').addClass('active');
+        $('#select-a-date-step').removeClass('completed');
+        $('#select-a-date-step').addClass('active');
         $('#select-a-time-step').removeClass('active completed');
-        $('#register-step').removeClass('active completed');
+        $('#enter-info-step').removeClass('active completed');
       });
 
       $('#test-date-button-1').click( function() {
