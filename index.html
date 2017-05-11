@@ -10,12 +10,13 @@
     <link href="dist/semantic.min.css" rel="stylesheet" />
     <link href="plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
-    <link href="plugins/datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="plugins/dateselecter/css/bootstrap-dateselecter.min.css" rel="stylesheet" />
     <link href="plugins/weather-icons/css/weather-icons-wind.min.css" rel="stylesheet" />
     <link href="plugins/weather-icons/css/weather-icons.min.css" rel="stylesheet" />
     <link href="plugins/chartist/chartist.min.css" rel="stylesheet" />
     <link href="css/chat-page.css" rel="stylesheet" />
     <link rel="shortcut icon" href="img/favicon.ico" />
+    <link href="plugins/lobibox/css/lobibox.css" rel="stylesheet" />
 
 </head>
 
@@ -1279,7 +1280,7 @@
                                                             <div class="ui icon top left pointing dropdown red basic fluid button" tabindex="0">
                                                                 <i class="write icon"></i> Task Actions
                                                                 <div class="menu" tabindex="-1">
-                                                                    <div class="header">Choose An Action:</div>
+                                                                    <div class="header">select An Action:</div>
                                                                     <div class="item record-phone-call-action">
                                                                         <i class="phone green icon"></i>
                                                                         Make Phone Call
@@ -1297,7 +1298,7 @@
                                                                         Send SMS
                                                                     </div>
                                                                     <div class="divider"></div>
-                                                                    <div class="header">Choose An Outcome:</div>
+                                                                    <div class="header">select An Outcome:</div>
                                                                     <div class="item">
                                                                         <i class="check green circle icon"></i>
                                                                         Task Accomplished
@@ -1339,7 +1340,7 @@
                                                             <div class="ui icon top left pointing dropdown green basic fluid button" tabindex="0">
                                                                 <i class="write icon"></i> Task Actions
                                                                 <div class="menu" tabindex="-1">
-                                                                    <div class="header">Choose An Action:</div>
+                                                                    <div class="header">select An Action:</div>
                                                                     <div class="item">
                                                                         <i class="phone green icon"></i>
                                                                         Make Phone Call
@@ -1357,7 +1358,7 @@
                                                                         Send SMS
                                                                     </div>
                                                                     <div class="divider"></div>
-                                                                    <div class="header">Choose An Outcome:</div>
+                                                                    <div class="header">select An Outcome:</div>
                                                                     <div class="item">
                                                                         <i class="check green circle icon"></i>
                                                                         Task Accomplished
@@ -1400,7 +1401,7 @@
                                                             <div class="ui icon top left pointing dropdown blue basic fluid button" tabindex="0">
                                                                 <i class="write icon"></i> Task Actions
                                                                 <div class="menu" tabindex="-1">
-                                                                    <div class="header">Choose An Action:</div>
+                                                                    <div class="header">select An Action:</div>
                                                                     <div class="item">
                                                                         <i class="phone green icon"></i>
                                                                         Make Phone Call
@@ -1418,7 +1419,7 @@
                                                                         Send SMS
                                                                     </div>
                                                                     <div class="divider"></div>
-                                                                    <div class="header">Choose An Outcome:</div>
+                                                                    <div class="header">select An Outcome:</div>
                                                                     <div class="item">
                                                                         <i class="check green circle icon"></i>
                                                                         Task Accomplished
@@ -1461,7 +1462,7 @@
                                                             <div class="ui icon top left pointing dropdown blue basic fluid button" tabindex="0">
                                                                 <i class="write icon"></i> Task Actions
                                                                 <div class="menu" tabindex="-1">
-                                                                    <div class="header">Choose An Action:</div>
+                                                                    <div class="header">select An Action:</div>
                                                                     <div class="item">
                                                                         <i class="phone green icon"></i>
                                                                         Make Phone Call
@@ -1479,7 +1480,7 @@
                                                                         Send SMS
                                                                     </div>
                                                                     <div class="divider"></div>
-                                                                    <div class="header">Choose An Outcome:</div>
+                                                                    <div class="header">select An Outcome:</div>
                                                                     <div class="item">
                                                                         <i class="check green circle icon"></i>
                                                                         Task Accomplished
@@ -1527,7 +1528,7 @@
                                                         <div class="ui icon top left pointing dropdown green basic fluid button" tabindex="0">
                                                             <i class="write icon"></i> Appointment Actions
                                                             <div class="menu" tabindex="-1">
-                                                                <div class="header">Choose An Action:</div>
+                                                                <div class="header">select An Action:</div>
                                                                 <div class="item">
                                                                     <i class="check green circle icon"></i>
                                                                     Check In
@@ -1570,7 +1571,7 @@
                                                           <div class="ui icon top left pointing dropdown green basic fluid button" tabindex="0">
                                                               <i class="write icon"></i> Appointment Actions
                                                               <div class="menu" tabindex="-1">
-                                                                  <div class="header">Choose An Action:</div>
+                                                                  <div class="header">select An Action:</div>
                                                                   <div class="item">
                                                                       <i class="check green circle icon modaltwo"></i>
                                                                       Check In
@@ -1918,23 +1919,158 @@
   </div>
 <!--//Make Phone call-->
 
-<!--make appointmentl-->
+<!-- Make Appointment Modal -->
   <div class="ui modal" id="make-appointment-modal">
     <div class="header">Make An Appointment</div>
     <div class="content">
-      <p>Scheduler Widget Goes Here</p>
-    </div>
-    <div class="actions">
-      <div class="ui black deny button">
-        Close
+      <!-- Steps across top of modal -->
+      <div class="ui three top attached steps mobile hidden tablet hidden" style="margin-bottom: 20px;">
+        <div class="active step" id="select-a-date-step">
+          <i class="calendar icon"></i>
+          <div class="content">
+            <div class="title">Select A Date</div>
+            <div class="description">Let's select a date for your visit</div>
+          </div>
+        </div>
+        <div class="step" id="select-a-time-step">
+          <i class="clock icon"></i>
+          <div class="content">
+            <div class="title">Select A Time</div>
+            <div class="description">Select a time from the list</div>
+          </div>
+        </div>
+        <div class="step" id="enter-info-step">
+          <i class="user icon"></i>
+          <div class="content">
+            <div class="title">Confirm</div>
+            <div class="description">Confirm your contact information</div>
+          </div>
+        </div>
       </div>
-      <div class="ui positive right labeled icon button">
-        Make Appointment
-        <i class="calendar icon"></i>
+      <!-- // Steps across top of modal -->
+      <!-- Select a date -->
+      <div class="ui stackable nine column center aligned centered grid mobile hidden tablet hidden whitebg">
+        <div class="row ui text fluid center aligned container mobile hidden tablet hidden whitebg">
+          <h3 id="step-title">Select A Date</h3><br>
+        </div>
+        <div class="row" id="select-a-date">
+          <div class="center aligned column">
+            <i class="angle left huge grey icon" style="margin-top: 10px;"></i>
+          </div>
+          <div class="center aligned column">
+            <div id="test-date-button-1" class="ui circular middle aligned calendar-button button" style="height: 80px; width: 80px; border-style: solid; border-width: 3px; border-color: #2185D0; text-color: #222222; background-color: #fff;">
+                <h4 class="ui header" style="color: #222;">Sun<br>5/7</h4>
+            </div>
+          </div>
+          <div class="center aligned column">
+            <div class="ui circular middle aligned calendar-button button" style="height: 80px; width: 80px; border-style: solid; border-width: 3px; border-color: #2185D0; text-color: #222222; background-color: #fff;">
+                <h4 class="ui header" style="color: #222;">Mon<br>5/8</h4>
+            </div>
+          </div>
+          <div class="center aligned column">
+            <div class="ui circular middle aligned calendar-button button" style="height: 80px; width: 80px; border-style: solid; border-width: 3px; border-color: #2185D0; text-color: #222222; background-color: #fff;">
+                <h4 class="ui header" style="color: #222;">Tue<br>5/9</h4>
+            </div>
+          </div>
+          <div class="center aligned column">
+            <div class="ui circular middle aligned calendar-button button disabled" style="height: 80px; width: 80px; border-style: solid; border-width: 3px; border-color: #aaa; text-color: #222222; background-color: #fff;">
+                <h4 class="ui header" style="color: #666;">Wed<br>5/10</h4>
+            </div>
+          </div>
+          <div class="center aligned column">
+            <div class="ui circular middle aligned calendar-button button" style="height: 80px; width: 80px; border-style: solid; border-width: 3px; border-color: #2185D0; text-color: #222222; background-color: #fff;">
+                <h4 class="ui header" style="color: #222;">Thu<br>5/11</h4>
+            </div>
+          </div>
+          <div class="center aligned column">
+            <div class="ui circular middle aligned calendar-button button" style="height: 80px; width: 80px; border-style: solid; border-width: 3px; border-color: #2185D0; text-color: #222222; background-color: #fff;">
+                <h4 class="ui header" style="color: #222;">Fri<br>5/12</h4>
+            </div>
+          </div>
+          <div class="center aligned column">
+            <div class="ui circular center aligned middle aligned calendar-button button disabled" style="height: 80px; width: 80px; border-style: solid; border-width: 3px; border-color: #aaa; text-color: #222222; background-color: #fff;">
+                <h4 class="ui header" style="color: #666;">Sat 5/13</h4>
+            </div>
+          </div>
+          <div class="center aligned column">
+            <i class="angle right huge blue icon" style="margin-top: 10px;"></i>
+          </div>
+        </div>
+        <!-- // Select a date -->
+        <!-- Select a time -->
+        <div class="row" id="select-a-time">
+          <div class="ui text fluid container mobile hidden tablet hidden whitebg">
+            <div class="ui form">
+              <div class="field">
+                <select class="ui fluid dropdown">
+                  <option value="">Select A Time</option>
+              <option value="AL">11:00 AM</option>
+              <option value="AK">11:15 AM</option>
+              <option value="AZ">11:30 AM</option>
+              <option value="AR">11:45 AM</option>
+              <option value="CA">12:00 PM</option>
+              <option value="CO">12:15 PM</option>
+                </select>
+              </div>
+              <div class="ui buttons two wide">
+                <button class="ui button" id="back-to-select-a-date-step">Select New Date</button>
+                <div class="or"></div>
+                <button class="ui positive button" id="enter-info-button">Enter Information</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- // Select a time -->
+        <!-- Confirmation Form -->
+        <div class="row" id="enter-info">
+          <div class="ui text fluid left aligned container mobile hidden tablet hidden whitebg">
+            <div class="ui large form">
+              <div class="field">
+                <div class="two fields">
+                  <div class="field">
+                    <label>First Name *</label>
+                    <input type="text" name="shipping[first-name]" placeholder="First Name">
+                  </div>
+                  <div class="field">
+                    <label>Last Name *</label>
+                    <input type="text" name="shipping[last-name]" placeholder="Last Name">
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="two fields">
+                  <div class="field">
+                    <label>Email Address *</label>
+                    <input type="text" name="shipping[address]" placeholder="Email Address">
+                  </div>
+                  <div class="field">
+                    <label>Phone Number *</label>
+                    <input type="text" name="shipping[address-2]" placeholder="Phone Number">
+                  </div>
+                </div>
+              </div>
+              <div class="ui buttons two wide">
+                <button class="ui button" id="back-to-select-a-time-step">Select New Time</button>
+                <div class="or"></div>
+                <button class="ui positive button not" id="confirm-visit-button" data-animation="" data-type="success" data-size="normal" data-title="Appointment Scheduled" data-message="Matt's appointment is confirmed.">Confirm Your Visit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- // Confirmation Form -->
+      </div>
+
+
+
+
+    </div>
+    <div class="actions" style="padding-top: 21px;">
+      <div class="ui black deny right button">
+        Close
       </div>
     </div>
   </div>
-<!--//make appointment-->
+<!-- // Make Appointment Modal -->
 
 <!--send email-->
   <div class="ui modal" id="send-email-modal">
@@ -2026,6 +2162,51 @@
       $('.make-appointment-action').click( function() {
         $('#make-appointment-modal')
         .modal('show');
+        $('#step-title').text('Select A Date');
+        $('#select-a-date').show();
+        $('#select-a-time').hide();
+        $('#enter-info').hide();
+        $('#select-a-date-step').removeClass('completed').addClass('active');
+        $('#select-a-time-step').removeClass('active completed');
+        $('#register-step').removeClass('active completed');
+      });
+
+      $('#test-date-button-1').click( function() {
+        $('#step-title').text('Select A Time');
+        $('#select-a-date').hide();
+        $('#select-a-time').show();
+        $('#select-a-date-step').removeClass('active').addClass('completed');
+        $('#select-a-time-step').addClass('active');
+      });
+
+      $('#back-to-select-a-date-step').click( function() {
+        $('#step-title').text('Select A Date');
+        $('#select-a-date').show();
+        $('#select-a-time').hide();
+        $('#select-a-date-step').removeClass('completed').addClass('active');
+        $('#select-a-time-step').removeClass('active completed');
+      });
+
+      $('#enter-info-button').click( function() {
+        $('#step-title').text('Confirm Your Information');
+        $('#select-a-time').hide();
+        $('#enter-info').show();
+        $('#select-a-time').hide();
+        $('#select-a-time-step').removeClass('active').addClass('completed');
+        $('#enter-info-step').addClass('active');
+      });
+
+      $('#back-to-select-a-time-step').click( function() {
+        $('#step-title').text('Select A Time');
+        $('#select-a-time').show();
+        $('#enter-info').hide();
+        $('#select-a-time-step').removeClass('completed').addClass('active');
+        $('#enter-info-step').removeClass('active completed');
+      });
+
+      $('#confirm-visit-button').click( function() {
+        $('#make-appointment-modal')
+        .modal('hide');
       });
 
       $('.send-email-action').click( function() {
@@ -2043,6 +2224,44 @@
           exclusive: false
         });
 
+    </script>
+
+    <script src="plugins/lobibox/js/notifications.js"></script>
+    <script>
+        notifyactions();
+        //Notification triggers funtcion in notification page
+        function notifyactions() {
+            $(".not").on("click", function () {
+                var a, b, c, d, e, f, g, h, i, j, k;
+                d = $(this).attr("data-size");
+                e = $(this).attr("data-message");
+                c = $(this).attr("data-type");
+                f = $(this).attr("data-icon");
+                g = $(this).attr("data-title");
+                h = $(this).attr("data-image");
+                i = $(this).attr("data-sound");
+                a = $(this).attr("data-show-animation");
+                b = $(this).attr("data-hide-animation");
+                // j = $(this).attr("data-position");
+                k = $(this).attr("data-delay");
+                Lobibox.notify(c, {
+                    size: d,
+                    rounded: false,
+                    delayIndicator: true,
+                    msg: e,
+                    icon: f,
+                    title: g,
+                    showClass: a,
+                    hideClass: b,
+                    sound: i,
+                    img: h,
+                    delay: k,
+                    position: 'center bottom'
+                });
+            });
+            //To reset, just get rid of line 1270 and uncomment line 1256.
+        }
+        //Notification triggers funtcion in notification page
     </script>
 </body>
 
